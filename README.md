@@ -1,5 +1,6 @@
-# DriveElite---Car-Renatal-Platform
-carrental/img/Screenshot (30).png
+<img width="1897" height="912" alt="Screenshot 2026-02-24 130551" src="carrental/img/Screenshot (30).png" />
+
+DriveElite---Car-Renatal-Platform
 DriveElite is a full-stack car rental web application built using HTML, CSS, JavaScript, PHP, and MySQL. The platform allows users to browse available cars, filter by category, and send inquiries through an integrated contact system.  
 🌟 Features
 
