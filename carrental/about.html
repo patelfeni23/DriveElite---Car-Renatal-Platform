@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — DriveElite</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-brand">
+    <div class="logo-icon">🚘</div>
+    <span class="brand-name">Drive<span>Elite</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="index.html#fleet">Fleet</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-actions" id="navActions">
+    <a href="login.html"><button class="btn-outline">Login</button></a>
+    <a href="register.html"><button class="btn-gold">Register</button></a>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="index.html#fleet">Fleet</a>
+  <a href="contact.html">Contact</a>
+  <a href="login.html">Login</a>
+  <a href="register.html">Register</a>
+</div>
+
+<!-- Page Header -->
+<div class="about-hero">
+  <div class="section-label" style="justify-content:center;display:flex;">Our Story</div>
+  <h1 class="section-title" style="font-size:clamp(2.5rem,5vw,4rem);">Driving Excellence <br>Since 2020</h1>
+  <p style="color:var(--muted);max-width:540px;margin:16px auto 0;line-height:1.75;">
+    Born from a passion for mobility and a commitment to exceptional service, DriveElite has grown to become India's most trusted premium car rental platform.
+  </p>
+</div>
+
+<!-- About Content -->
+<section style="padding:80px 5%;">
+  <div class="container">
+    <div class="about-content">
+      <div class="about-img-wrap">
+        <img src="img/about_bg_car.jpg" alt="About DriveElite" onerror="this.style.background='var(--bg3)'">
+      </div>
+      <div class="about-text">
+        <div class="section-label">Who We Are</div>
+        <h2 class="section-title" style="font-size:2rem;">More Than Just a Car Rental</h2>
+        <p>At DriveElite, we believe that every journey deserves to begin and end in comfort. We are a team of mobility enthusiasts dedicated to transforming how people experience car rentals in India.</p>
+        <p>With a curated fleet of well-maintained vehicles — from fuel-efficient hatchbacks to premium SUVs — we offer experiences tailored to every traveller, whether you're on a business trip, family vacation, or a solo adventure.</p>
+        <p>Our platform is built around simplicity, transparency, and trust. No hidden charges, no complicated paperwork — just open roads and great cars.</p>
+        <div class="values-grid">
+          <div class="value-item">Customer First</div>
+          <div class="value-item">Integrity Always</div>
+          <div class="value-item">Premium Quality</div>
+          <div class="value-item">Continuous Innovation</div>
+          <div class="value-item">Community Focus</div>
+          <div class="value-item">Sustainability</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section style="padding:60px 5%;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:40px;text-align:center;">
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:var(--gold);">500+</div>
+        <div style="color:var(--muted);font-size:0.87rem;margin-top:6px;letter-spacing:0.5px;">Happy Customers</div>
+      </div>
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:var(--gold);">50+</div>
+        <div style="color:var(--muted);font-size:0.87rem;margin-top:6px;letter-spacing:0.5px;">Fleet Size</div>
+      </div>
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:var(--gold);">10+</div>
+        <div style="color:var(--muted);font-size:0.87rem;margin-top:6px;letter-spacing:0.5px;">Cities Served</div>
+      </div>
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:var(--gold);">4.8★</div>
+        <div style="color:var(--muted);font-size:0.87rem;margin-top:6px;letter-spacing:0.5px;">Average Rating</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section style="padding:80px 5%;">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label">What Sets Us Apart</div>
+      <h2 class="section-title">Our Commitment to You</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <h3 class="feature-title">Safety First</h3>
+        <p class="feature-desc">All vehicles undergo rigorous safety checks before every rental. We don't compromise on your safety.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌿</div>
+        <h3 class="feature-title">Eco Conscious</h3>
+        <p class="feature-desc">We're gradually expanding our fleet with hybrid and EV options for a greener tomorrow.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🤝</div>
+        <h3 class="feature-title">Local Partners</h3>
+        <p class="feature-desc">We work with local businesses to support communities in every city we operate in.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3 class="feature-title">Transparent Pricing</h3>
+        <p class="feature-desc">What you see is what you pay. No surprise fees, no hidden charges — ever.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section style="padding:80px 5%;background:var(--bg2);border-top:1px solid var(--border);">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label">Testimonials</div>
+      <h2 class="section-title">Our Customers Love Us</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
+      <div class="testimonial-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Fantastic service! The car was in perfect condition and the staff were incredibly helpful throughout."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">PD</div>
+          <div><div class="testi-name">Priya Desai</div><div class="testi-role">Marketing Manager</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Great experience from start to finish. The booking process was smooth and the car was ready on time."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">RS</div>
+          <div><div class="testi-name">Rohan Shah</div><div class="testi-role">Software Engineer</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testi-stars">★★★★☆</div>
+        <p class="testi-text">"Affordable rates and excellent customer service. Will definitely rent again for my next trip to Jaipur!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AN</div>
+          <div><div class="testi-name">Ananya Nair</div><div class="testi-role">Travel Blogger</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo-row">
+        <div class="logo-icon">🚘</div>
+        <span class="footer-brand-name">Drive<span>Elite</span></span>
+      </div>
+      <p>India's premium car rental platform. Trusted by thousands for safe, affordable, and luxurious driving experiences.</p>
+    </div>
+    <div class="footer-col"><h4>Navigation</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="index.html#fleet">Fleet</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Account</h4><a href="login.html">Login</a><a href="register.html">Register</a><a href="profile.html">My Profile</a></div>
+    <div class="footer-col"><h4>Legal</h4><a href="term.html">Terms</a><a href="#">Privacy</a><a href="#">Refund Policy</a></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 DriveElite. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#" class="social-link">🐦</a>
+      <a href="#" class="social-link">📘</a>
+      <a href="#" class="social-link">📸</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

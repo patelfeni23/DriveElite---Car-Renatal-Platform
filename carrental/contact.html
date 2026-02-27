@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — DriveElite</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-brand">
+    <div class="logo-icon">🚘</div>
+    <span class="brand-name">Drive<span>Elite</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html#fleet">Fleet</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <div class="nav-actions" id="navActions">
+    <a href="login.html"><button class="btn-outline">Login</button></a>
+    <a href="register.html"><button class="btn-gold">Register</button></a>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="index.html#fleet">Fleet</a>
+  <a href="login.html">Login</a>
+  <a href="register.html">Register</a>
+</div>
+
+<!-- Page Header -->
+<div class="page-header">
+  <div class="section-label" style="justify-content:center;display:flex;">Get In Touch</div>
+  <h1 class="section-title" style="font-size:clamp(2.5rem,5vw,3.5rem);">We'd Love to Hear From You</h1>
+  <p style="color:var(--muted);max-width:480px;margin:12px auto 0;line-height:1.75;">Have a question, feedback, or need help with a booking? Our team is here to help you.</p>
+</div>
+
+<!-- Contact Section -->
+<section style="padding:80px 5%;">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Contact Information</h3>
+        <p>Reach out to us through any of the channels below. Our support team typically responds within 2 hours during business hours.</p>
+
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div>
+              <div class="contact-item-title">Head Office</div>
+              <div class="contact-item-val">DriveElite Pvt. Ltd.<br>Sarkhej-Gandhinagar Highway,<br>Ahmedabad, Gujarat - 380054</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📞</div>
+            <div>
+              <div class="contact-item-title">Phone</div>
+              <div class="contact-item-val">+91 99999 88888<br>+91 79 1234 5678 (Landline)</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📧</div>
+            <div>
+              <div class="contact-item-title">Email</div>
+              <div class="contact-item-val">support@driveelite.in<br>bookings@driveelite.in</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🕐</div>
+            <div>
+              <div class="contact-item-title">Business Hours</div>
+              <div class="contact-item-val">Mon–Sat: 8 AM – 9 PM<br>Sunday: 9 AM – 6 PM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-card">
+        <div class="section-label">Send a Message</div>
+        <h3 style="font-family:'Playfair Display',serif;color:var(--white);font-size:1.4rem;margin-bottom:24px;">We'll get back to you shortly</h3>
+
+        <div class="alert hidden" id="contactAlert"></div>
+
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" name="name" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" name="email" required placeholder="your@email.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Subject</label>
+            <input type="text" name="subject" placeholder="How can we help you?">
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea name="message" required placeholder="Tell us more about your query..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit" id="contactBtn">Send Message ✉️</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GOOGLE MAP SECTION ===== -->
+<div style="padding:0 5% 80px;">
+  <div class="container">
+
+    <!-- Map Header -->
+    <div style="text-align:center; margin-bottom:28px;">
+      <p style="font-size:0.72rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:600;margin-bottom:8px;">Find Us</p>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--white);margin-bottom:8px;">Visit Our Office</h3>
+      <p style="color:var(--muted);font-size:0.87rem;">Sarkhej–Gandhinagar Highway, Ahmedabad, Gujarat – 380054</p>
+    </div>
+
+    <!-- Google Map iframe — Dark themed -->
+    <div style="border-radius:20px;overflow:hidden;border:1px solid rgba(201,168,76,0.25);box-shadow:0 12px 50px rgba(0,0,0,0.6);">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.9022340849584!2d72.54944857507738!3d23.02256527917268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84576f81a04f%3A0xa7ffe1b96a9e9f3b!2sSarkhej-Gandhinagar%20Hwy%2C%20Ahmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+        width="100%"
+        height="440"
+        style="border:none; display:block; filter:invert(92%) hue-rotate(180deg) saturate(0.8) brightness(0.92);"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="DriveElite Office Location">
+      </iframe>
+    </div>
+
+    <!-- Direction Buttons -->
+    <div style="display:flex; gap:12px; margin-top:20px; flex-wrap:wrap; justify-content:center;">
+      <a href="https://maps.google.com/?q=Sarkhej+Gandhinagar+Highway+Ahmedabad" target="_blank"
+         style="padding:11px 26px; background:linear-gradient(135deg,#c9a84c,#f0d080); color:#0a0a0f;
+                border-radius:10px; font-weight:600; font-size:0.87rem; text-decoration:none;
+                box-shadow:0 4px 18px rgba(201,168,76,0.3); transition:all 0.3s;"
+         onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+        📍 Get Directions
+      </a>
+      <a href="https://maps.google.com/?q=23.0225,72.5714" target="_blank"
+         style="padding:11px 26px; background:var(--bg3); color:var(--text);
+                border:1px solid var(--border); border-radius:10px; font-size:0.87rem;
+                text-decoration:none; transition:all 0.3s;"
+         onmouseover="this.style.borderColor='#c9a84c'; this.style.color='#c9a84c';"
+         onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'; this.style.color='var(--text)'">
+        🗺️ Open in Google Maps
+      </a>
+      <a href="tel:+919999988888"
+         style="padding:11px 26px; background:var(--bg3); color:var(--text);
+                border:1px solid var(--border); border-radius:10px; font-size:0.87rem;
+                text-decoration:none; transition:all 0.3s;"
+         onmouseover="this.style.borderColor='#c9a84c'; this.style.color='#c9a84c';"
+         onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'; this.style.color='var(--text)'">
+        📞 Call Us Now
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo-row">
+        <div class="logo-icon">🚘</div>
+        <span class="footer-brand-name">Drive<span>Elite</span></span>
+      </div>
+      <p>India's premium car rental platform.</p>
+    </div>
+    <div class="footer-col"><h4>Navigation</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="index.html#fleet">Fleet</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Account</h4><a href="login.html">Login</a><a href="register.html">Register</a></div>
+    <div class="footer-col"><h4>Legal</h4><a href="term.html">Terms</a><a href="#">Privacy</a></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 DriveElite. All rights reserved.</p>
+    <div class="social-links"><a href="#" class="social-link">🐦</a><a href="#" class="social-link">📘</a></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">
+  <div class="toast-title" id="toastTitle"></div>
+  <div class="toast-msg" id="toastMsg"></div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  hideAlert('contactAlert');
+  const btn = document.getElementById('contactBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Sending...';
+
+  const fd = new FormData(this);
+  try {
+    const res  = await fetch('api/contact.php', { method:'POST', body:fd });
+    const data = await res.json();
+    if (data.success) {
+      showAlert('contactAlert', '✅ ' + data.message, 'success');
+      this.reset();
+    } else {
+      showAlert('contactAlert', data.error || 'Failed to send message', 'error');
+    }
+  } catch(err) {
+    showAlert('contactAlert', 'Network error. Please try again.', 'error');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Send Message ✉️';
+  }
+});
+</script><script>
+(function(){
+  emailjs.init("D7FsZi_ni3BTK0sip");
+})();
+
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  emailjs.sendForm("feni_23", "template_v3tmno7", this)
+  .then(function(response) {
+     alert("SUCCESS!", response.status, response.text);
+  }, function(error) {
+     alert("FAILED...", error);
+     console.log(error);
+  });
+});
+</script>
+</body>
+</html>

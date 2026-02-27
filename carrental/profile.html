@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile — DriveElite</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-brand">
+    <div class="logo-icon">🚘</div>
+    <span class="brand-name">Drive<span>Elite</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html#fleet">Fleet</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-actions" id="navActions">
+    <a href="login.html"><button class="btn-outline">Login</button></a>
+    <a href="register.html"><button class="btn-gold">Register</button></a>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="index.html#fleet">Fleet</a>
+  <a href="contact.html">Contact</a>
+  <a href="login.html">Login</a>
+  <a href="register.html">Register</a>
+</div>
+
+<!-- PROFILE CONTENT -->
+<div class="profile-page container" id="profileContent">
+  <!-- Loaded dynamically -->
+  <div style="min-height:60vh;display:flex;align-items:center;justify-content:center;">
+    <div style="text-align:center;color:var(--muted);">
+      <div class="spinner" style="width:36px;height:36px;border-color:rgba(201,168,76,0.2);border-top-color:var(--gold);margin:0 auto 16px;"></div>
+      <p>Loading profile...</p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo-row">
+        <div class="logo-icon">🚘</div>
+        <span class="footer-brand-name">Drive<span>Elite</span></span>
+      </div>
+      <p>India's premium car rental platform.</p>
+    </div>
+    <div class="footer-col"><h4>Navigation</h4><a href="index.html">Home</a><a href="about.html">About</a></div>
+    <div class="footer-col"><h4>Account</h4><a href="login.html">Login</a><a href="register.html">Register</a></div>
+    <div class="footer-col"><h4>Legal</h4><a href="term.html">Terms</a></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 DriveElite. All rights reserved.</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast">
+  <div class="toast-title" id="toastTitle"></div>
+  <div class="toast-msg" id="toastMsg"></div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+async function loadProfile() {
+  const container = document.getElementById('profileContent');
+  try {
+    const res  = await fetch('api/profile.php');
+    const data = await res.json();
+
+    if (!data.logged_in) {
+      container.innerHTML = `
+        <div style="min-height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;">
+          <div>
+            <div style="font-size:60px;margin-bottom:20px;">🔐</div>
+            <h2 style="font-family:'Playfair Display',serif;color:var(--white);margin-bottom:12px;">Please Log In</h2>
+            <p style="color:var(--muted);margin-bottom:30px;">You need to be logged in to view your profile and bookings.</p>
+            <a href="login.html"><button class="btn-gold" style="padding:12px 30px;font-size:0.95rem;">Sign In →</button></a>
+          </div>
+        </div>`;
+      return;
+    }
+
+    const u = data.user;
+    const initials = u.full_name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+    const joined = new Date(u.created_at).toLocaleDateString('en-IN', {month:'long', year:'numeric'});
+    const bookings = data.bookings || [];
+
+    const bookingHTML = bookings.length ? bookings.map(b => `
+      <div class="booking-item">
+        <img src="img/${b.image || 'home_SUV1.jpg'}" class="booking-car-img"
+             onerror="this.src='img/home_SUV1.jpg'" alt="${b.car_name}">
+        <div style="flex:1;">
+          <div class="booking-car-name">${b.car_name || 'Unknown Car'} <span style="font-size:0.75rem;color:var(--muted)">(${b.category || ''})</span></div>
+          <div class="booking-dates">
+            📅 ${new Date(b.pickup_date).toLocaleDateString('en-IN')} → ${new Date(b.return_date).toLocaleDateString('en-IN')}
+            · ${b.total_days} day${b.total_days > 1 ? 's' : ''}
+          </div>
+          <div style="margin-top:6px;">
+            <span class="booking-status ${b.status}">${b.status.charAt(0).toUpperCase() + b.status.slice(1)}</span>
+          </div>
+        </div>
+        <div class="booking-price">
+          <div class="amount">₹${parseFloat(b.total_price).toLocaleString('en-IN')}</div>
+          <div style="font-size:0.75rem;color:var(--muted);">Total</div>
+        </div>
+      </div>
+    `).join('') : `
+      <div style="text-align:center;padding:40px;color:var(--muted);">
+        <div style="font-size:40px;margin-bottom:12px;">🚗</div>
+        <p>No bookings yet.</p>
+        <a href="index.html#fleet" style="color:var(--gold);font-size:0.9rem;">Browse our fleet →</a>
+      </div>`;
+
+    container.innerHTML = `
+      <div class="profile-header">
+        <div class="profile-avatar-lg">${initials}</div>
+        <div class="profile-info">
+          <h2>${u.full_name}</h2>
+          <p>Member since ${joined} · ${u.role === 'admin' ? '⭐ Admin' : '🧑‍💼 Customer'}</p>
+        </div>
+        <button class="btn-outline" onclick="logout()" style="margin-left:auto;">Logout</button>
+      </div>
+
+      <div class="profile-grid">
+        <!-- Profile Details -->
+        <div>
+          <div class="profile-card">
+            <h3>Account Details</h3>
+            <div class="profile-field">
+              <div class="profile-field-label">FULL NAME</div>
+              <div class="profile-field-val">${u.full_name}</div>
+            </div>
+            <div class="profile-field">
+              <div class="profile-field-label">EMAIL</div>
+              <div class="profile-field-val">${u.email}</div>
+            </div>
+            <div class="profile-field">
+              <div class="profile-field-label">PHONE</div>
+              <div class="profile-field-val">${u.phone || 'Not provided'}</div>
+            </div>
+            <div class="profile-field">
+              <div class="profile-field-label">MEMBER SINCE</div>
+              <div class="profile-field-val">${joined}</div>
+            </div>
+          </div>
+
+          <div class="profile-card" style="margin-top:20px;">
+            <h3>Quick Stats</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+              <div style="text-align:center;padding:16px;background:var(--bg2);border-radius:10px;border:1px solid var(--border);">
+                <div style="font-size:1.8rem;font-weight:700;color:var(--gold);">${bookings.length}</div>
+                <div style="font-size:0.78rem;color:var(--muted);">Total Bookings</div>
+              </div>
+              <div style="text-align:center;padding:16px;background:var(--bg2);border-radius:10px;border:1px solid var(--border);">
+                <div style="font-size:1.8rem;font-weight:700;color:var(--gold);">₹${bookings.reduce((s,b)=>s+parseFloat(b.total_price||0),0).toLocaleString('en-IN')}</div>
+                <div style="font-size:0.78rem;color:var(--muted);">Total Spent</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bookings -->
+        <div class="profile-card">
+          <h3>My Bookings</h3>
+          ${bookingHTML}
+        </div>
+      </div>
+    `;
+  } catch(err) {
+    container.innerHTML = `
+      <div style="text-align:center;padding:80px 20px;color:var(--muted);">
+        <div style="font-size:40px;margin-bottom:16px;">⚠️</div>
+        <h3 style="color:var(--text);">Unable to load profile</h3>
+        <p>Please make sure the PHP server is running.</p>
+      </div>`;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadProfile);
+</script>
+</body>
+</html>
